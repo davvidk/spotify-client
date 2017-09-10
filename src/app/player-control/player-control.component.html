@@ -1,0 +1,10 @@
+
+<button (click)="previous()" [disabled]="!isActivePrevious()">Previous</button>
+
+<button (click)="play()" [disabled]="!isActivePlay()">Play</button>
+
+<button (click)="pause()" [disabled]="!isActivePause()">Pause</button>
+
+<button (click)="stop()" [disabled]="!isActiveStop()" >Stop</button>
+
+<button (click)="next()" [disabled]="!isActiveNext()">Next</button>
