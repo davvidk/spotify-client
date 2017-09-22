@@ -14,7 +14,7 @@ export class PlaylistComponent implements OnInit {
 
   ngOnInit() {
     //This should be an observable
-    this.playlists = this.musicSevice.getPlaylist();
+    this.playlists = this.musicSevice.getPlaylists();
   }
 
 }

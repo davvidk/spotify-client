@@ -8,7 +8,8 @@ export class MusicService {
 
   constructor() { }
 
-  private static readonly SONG_LIST: string = 'power Songs';
+  private playlist: string = this.getPlaylists()[0];
+  
   private songs: string[] = ['Live is Live', 'Today was a good day', 'There will be an angel'];
 
   private playposition:number = 0;
@@ -20,22 +21,22 @@ export class MusicService {
     {
       this.playposition--;
     }
-    const s: State = new State({ playlist: MusicService.SONG_LIST, isPlaying: true, song: this.songs[this.playposition] });
+    const s: State = new State({ playlist: this.playlist, isPlaying: true, song: this.songs[this.playposition] });
     return this.subject.next(s);
   }
 
   public play(songlist: string) {
-     const s: State = new State({ playlist: MusicService.SONG_LIST, isPlaying: true, song: this.songs[this.playposition] });
+     const s: State = new State({ playlist: this.playlist, isPlaying: true, song: this.songs[this.playposition] });
     return this.subject.next(s);
   }
 
   public pause() {
-    const s: State = new State({ playlist: MusicService.SONG_LIST, isPlaying: false, song: this.songs[this.playposition] });
+    const s: State = new State({ playlist: this.playlist, isPlaying: false, song: this.songs[this.playposition] });
     return this.subject.next(s);
   }
 
   public stop() {
-    const s: State = new State({ playlist: MusicService.SONG_LIST, isPlaying: false, song: this.songs[this.playposition] });
+    const s: State = new State({ playlist: this.playlist, isPlaying: false, song: this.songs[this.playposition] });
     return this.subject.next(s);
   }
 
@@ -45,7 +46,7 @@ export class MusicService {
       this.playposition++;
     }
     console.log(this.playposition);
-    const s: State = new State({ playlist: MusicService.SONG_LIST, isPlaying: true, song: this.songs[this.playposition]});
+    const s: State = new State({ playlist: this.playlist, isPlaying: true, song: this.songs[this.playposition]});
     return this.subject.next(s);
   }
 
@@ -53,8 +54,11 @@ export class MusicService {
     return this.subject.asObservable();
   }
 
-  public getPlaylist(): string[] {
-    return [ 'Powersongs', 'Chillout', 'Rock']; 
+  public getPlaylist(): string {
+    return this.playlist;
   }
 
+ public getPlaylists(): string[] {
+    return [ 'Powersongs', 'Chillout', 'Rock']; 
+  }
 }
