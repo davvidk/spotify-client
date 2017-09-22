@@ -1,10 +1,12 @@
 
-<button (click)="previous()" [disabled]="!isActivePrevious()">Previous</button>
 
-<button (click)="play()" [disabled]="!isActivePlay()">Play</button>
 
-<button (click)="pause()" [disabled]="!isActivePause()">Pause</button>
+<button type="button" class="btn btn-primary" (click)="play()" [disabled]="!isActivePlay()">Play</button>
 
-<button (click)="stop()" [disabled]="!isActiveStop()" >Stop</button>
+<button type="button" class="btn btn-primary" (click)="pause()" [disabled]="!isActivePause()">Pause</button>
 
-<button (click)="next()" [disabled]="!isActiveNext()">Next</button>
+<button type="button" class="btn btn-primary" (click)="stop()" [disabled]="!isActiveStop()" >Stop</button>
+
+<button type="button" class="btn btn-primary" (click)="next()" [disabled]="!isActiveNext()">Next</button>
+
+

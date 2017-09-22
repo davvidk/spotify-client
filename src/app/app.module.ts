@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { PlaylistComponent } from './playlist/playlist.component';
 import { PlayerControlComponent } from './player-control/player-control.component';
 import { DisplayComponent } from './display/display.component';
+
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
  
 @NgModule({
   declarations: [
@@ -15,6 +17,7 @@ import { DisplayComponent } from './display/display.component';
     DisplayComponent
   ],
   imports: [
+    NgbModule.forRoot(),
     BrowserModule
   ],
   providers: [MusicService],
